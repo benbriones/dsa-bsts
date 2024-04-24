@@ -5,7 +5,14 @@ import { BNodeNum } from "../common/bst";
  * Returns the node, if found; else null */
 
 function findRecursively(node: BNodeNum | null, val: number): BNodeNum | null {
-  return null;
+  if (node === null) {
+    return null;
+  }
+  if (node.val === val) {
+    return node;
+  }
+  node = val > node.val ? node.right : node.left;
+  return findRecursively(node, val);
 }
 
 
@@ -13,6 +20,12 @@ function findRecursively(node: BNodeNum | null, val: number): BNodeNum | null {
  * Returns the node, if found; else null. */
 
 function find(node: BNodeNum | null, val: number): BNodeNum | null {
+  while (node) {
+    if (val === node.val) {
+      return node;
+    }
+    node = val > node.val ? node.right : node.left;
+  }
   return null;
 }
 
