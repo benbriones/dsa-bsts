@@ -4,7 +4,14 @@ import { BNodeNum } from "../common/bst";
  * Returns null if no successor. */
 
 function findSuccessor(node: BNodeNum | null): BNodeNum | null {
-  return null;
+  if (!node?.right) {
+    return null;
+  };
+  let successor = node.right;
+  while (successor.left) {
+    successor = successor.left;
+  }
+  return successor;
 }
 
 export { findSuccessor };
