@@ -8,7 +8,7 @@ import { find } from "../find/find";
 
 
 function remove(bst: BSTNum, val: number): BNodeNum | null {
-  let toRemove = find(bst.root, val);
+  let toRemove = find(bst, val);
 
   if (!toRemove) {
     return null;
